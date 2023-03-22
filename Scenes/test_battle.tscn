@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=3 uid="uid://1e40cts0kus4"]
+
+[ext_resource type="Texture2D" uid="uid://dwvn6minvwbce" path="res://Graphics/Sprites/speechbubble.png" id="1_3ftrv"]
+[ext_resource type="Script" path="res://Scripts/test_battle.cs" id="1_n0dbo"]
+[ext_resource type="Texture2D" uid="uid://b2n6x0wxw6dhp" path="res://Graphics/Sprites/questionbubble.png" id="2_kcje8"]
+[ext_resource type="Texture2D" uid="uid://c5ybykdii4mha" path="res://Graphics/Sprites/nerd.png" id="3_gtpbi"]
+[ext_resource type="Texture2D" uid="uid://bqocxuev0lg11" path="res://Graphics/Sprites/bully.png" id="4_uyclk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7uct"]
+bg_color = Color(0.933333, 0.00784314, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g76r7"]
+bg_color = Color(0.984314, 0, 0.227451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nw6r"]
+
+[sub_resource type="Theme" id="Theme_03ft6"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_2nw6r")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6gin"]
+bg_color = Color(0.262745, 0.713726, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1y3iu"]
+bg_color = Color(0, 0.721569, 0.266667, 1)
+
+[node name="root" type="Node2D"]
+script = ExtResource("1_n0dbo")
+
+[node name="bg" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.65098, 0.631373, 0.803922, 1)
+
+[node name="GUI" type="Node" parent="."]
+
+[node name="P_Side_Text" type="Node" parent="GUI"]
+
+[node name="Speechbubble" type="Sprite2D" parent="GUI/P_Side_Text"]
+visible = false
+position = Vector2(609, 374.875)
+scale = Vector2(3.16667, 1.83203)
+texture = ExtResource("1_3ftrv")
+
+[node name="TextEdit" type="TextEdit" parent="GUI/P_Side_Text"]
+visible = false
+offset_left = 439.0
+offset_top = 288.0
+offset_right = 725.0
+offset_bottom = 435.0
+placeholder_text = "Enter answer"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="EHP" type="ProgressBar" parent="GUI"]
+offset_left = 1427.0
+offset_top = 924.0
+offset_right = 1807.0
+offset_bottom = 977.0
+theme_override_styles/background = SubResource("StyleBoxFlat_p7uct")
+theme_override_styles/fill = SubResource("StyleBoxFlat_g76r7")
+value = 100.0
+
+[node name="PHP" type="ProgressBar" parent="GUI"]
+offset_left = 111.0
+offset_top = 927.0
+offset_right = 496.0
+offset_bottom = 978.0
+theme = SubResource("Theme_03ft6")
+theme_override_styles/background = SubResource("StyleBoxFlat_y6gin")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1y3iu")
+value = 100.0
+
+[node name="question" type="Node" parent="GUI"]
+
+[node name="Sprite2D" type="Sprite2D" parent="GUI/question"]
+visible = false
+position = Vector2(909, 78)
+scale = Vector2(3.13021, 1.32292)
+texture = ExtResource("2_kcje8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GUI/question"]
+offset_left = 853.0
+offset_top = 44.0
+offset_right = 1205.0
+offset_bottom = 268.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+
+[node name="GAME" type="Node" parent="."]
+
+[node name="Player" type="Node" parent="GAME"]
+
+[node name="Sprite2D" type="Sprite2D" parent="GAME/Player"]
+position = Vector2(305, 675)
+scale = Vector2(2, 2)
+texture = ExtResource("3_gtpbi")
+
+[node name="Enemy" type="Node" parent="GAME"]
+
+[node name="Sprite2D" type="Sprite2D" parent="GAME/Enemy"]
+position = Vector2(1624, 675)
+scale = Vector2(2, 1.976)
+texture = ExtResource("4_uyclk")
